@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 app.use(bodyParser.json());
 
+//set EJS as view engine
 app.set("view engine", "ejs");
 
 app.get("/", async (request, response) => {
@@ -22,8 +23,7 @@ app.get("/", function (request, response) {
   response.send("Hello World");
 });
 
-app.get("/todos", async function (_request, response) 
- {
+app.get("/todos", async function (_request, response) {
   console.log("Processing list of all Todos ...");
   try {
     const todos = await Todo.findAll();
